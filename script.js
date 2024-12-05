@@ -1,65 +1,87 @@
-let inverseRightAngle = (rows) => {
-
-    for (let i = rows; i >= 1; i--) {
-        let row = ''
-        for (let j = i; j >= 1; j--) {
-            row += '*'
-        }
-        console.log(row)
+// Right Angled Triangle Pattern
+function RightTriangle(num){
+    let star;
+    for(let i=1;i<=num;i++){
+        star="* ".repeat(i)
+        console.log(star)
     }
-
-
+    console.log("\n")
 }
 
-let invertedPyramid = (rows) => {
 
-    for (let i = rows; i >= 1; i--) {
-        let row = ''
-        let space = ''
-        for (let k = 1; k <= rows - i; k++) {
-            space += ' '
-        }
-        for (let j = 1; j <= 2 * i - 1; j++) {
-            row += '*'
-        }
-        console.log(space + row)
-
+// Pyramid Pattern
+function Pyramid(num){
+    let star;
+    let space;
+    for(let i=1;i<=num;i++){
+        star = "* ".repeat(i)
+        space = " ".repeat(num-i)
+        console.log(space+star)
     }
-
+    console.log("\n")
 }
 
-let squre = (rows) => {
 
-    for (let i = 0; i < rows; i++) {
-        let row = ' ';
-        for (let j = 0; j < rows; j++) {
-            row += '*'
-        }
-        console.log(row)
+// Inverse Right Angled Triangle Pattern
+function InverseRightTriangle(num){
+    let star;
+    for(let i=num;i>=1;i--){
+        star="* ".repeat(i)
+        console.log(star)
     }
-
-}
-
-let hollowsqure = (rows) => {
-
-    for (let i = 0; i < rows; i++) {
-        let row = ' ';
-        for (let j = 0; j < rows; j++) {
-            if (i == 0 || i == rows - 1 || j == 0 || j == rows - 1) {
-                row += '*'
-            } else {
-                row += ' '
-            }
-        }
-        console.log(row)
-    }
-
+    console.log("\n")
 }
 
 
 
-let rows = 5
-invertedPyramid(rows)
-inverseRightAngle(rows)
-squre(rows)
-hollowsqure(rows)
+// Inverse Pyramid Pattern
+function InversePyramid(num){
+    let star;
+    let space;
+    for(let i=num;i>=1;i--){
+        star = "* ".repeat(i)
+        space = " ".repeat(num-i)
+        console.log(space+star)
+    }
+    console.log("\n")
+}
+
+
+// Square Pattern
+function square(num){
+    let star;
+    for(let i=1;i<=num;i++){
+        star="* ".repeat(num)
+        console.log(star)
+    }
+    console.log("\n")
+}
+
+
+// Hollow Square Pattern
+function HollowSquare(num){
+    let star;
+    for(let i=1;i<=num;i++){
+        if(i==1 || i==num){
+            star="* ".repeat(num)
+            console.log(star)
+        }
+        if(i>1 && i<num){
+            star="* "+"  ".repeat(num-2)+"*"
+            console.log(star)
+        }
+    }
+    console.log("\n")
+}
+
+
+// All Patterns
+const patterns = (num)=>{
+    RightTriangle(num)
+    Pyramid(num)
+    InverseRightTriangle(num)
+    InversePyramid(num)
+    square(num)
+    HollowSquare(num)
+}
+patterns(5)
